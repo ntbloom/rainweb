@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TimeUtils from '../lib/data/timeUtils';
 import UrlBuilder from '../lib/data/urlBuilder';
 
@@ -13,13 +13,15 @@ interface LastRainData {
 }
 
 const LastRain = (props: LastRainProps): JSX.Element => {
-  console.debug(`calling ${props.url}`);
-  const [date, setDate] = useState('');
-  const [timeSince, setTimeSince] = useState('');
-  UrlBuilder.apiCall(props.url).then((data) => {
-    const timestamp = (data as unknown as LastRainData).timestamp;
-    setDate(TimeUtils.getMonthDayYear(timestamp));
-    setTimeSince(`${TimeUtils.getTimeSince(timestamp)} ago`);
+  console.debug(`calling ${props.url} at ${new Date().toISOString()}`);
+  const [date, setDate] = useState('...');
+  const [timeSince, setTimeSince] = useState('...');
+  useEffect(() => {
+    UrlBuilder.apiCall(props.url).then((data) => {
+      const timestamp = (data as unknown as LastRainData).timestamp;
+      setDate(TimeUtils.getMonthDayYear(timestamp));
+      setTimeSince(`${TimeUtils.getTimeSince(timestamp)} ago`);
+    });
   });
   return (
     <p className="LastRain">
