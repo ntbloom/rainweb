@@ -1,9 +1,5 @@
 const { default: TimeUtils } = require('../data/timeUtils');
 
-function sums(num1, num2) {
-  return num1 + num2;
-}
-
 describe.each([
   [0, '<1 hour'],
   [55, '<1 hour'],

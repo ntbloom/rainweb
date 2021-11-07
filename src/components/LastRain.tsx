@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TimeUtils from '../lib/data/timeUtils';
 import UrlBuilder from '../lib/data/urlBuilder';
+import ErrorHandlers from './ErrorHandlers';
 
 interface LastRainProps {
   url: string;
@@ -11,10 +12,6 @@ interface LastRainProps {
 interface LastRainData {
   timestamp: string;
 }
-
-const whoops = (msg: string) => {
-  return <p>Error loading: {msg}</p>;
-};
 
 const LastRain = (props: LastRainProps): JSX.Element => {
   const [date, setDate] = useState('...');
@@ -36,10 +33,11 @@ const LastRain = (props: LastRainProps): JSX.Element => {
   }, [props.url]);
   return !error ? (
     <p className="LastRain">
-      Last Rain Event: {date} ({timeSince})
+      Last Rain Event: <br />
+      {date} <br />({timeSince})
     </p>
   ) : (
-    whoops('LastRain')
+    ErrorHandlers.errorLoadingMsg('LastRain')
   );
 };
 
