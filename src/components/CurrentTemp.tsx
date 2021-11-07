@@ -19,7 +19,6 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
     fetch(props.url, UrlBuilder.getInit())
       .then(async (response) => {
         const data = await response.json();
-        console.log(data);
         setTempC((data as unknown as CurrentTempData).last_temp_c);
         setTempF(TempUtils.celToFahr(tempC, 'string') as number);
       })
@@ -36,7 +35,7 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
       {TempUtils.F}
     </p>
   ) : (
-    ErrorHandlers.errorLoadingMsg('LastRain')
+    ErrorHandlers.errorLoadingMsg('LastTemp')
   );
 };
 
