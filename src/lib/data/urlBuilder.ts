@@ -21,18 +21,6 @@ class UrlBuilder {
     };
     return args;
   }
-
-  // make a rest API, get back the json promise
-  static apiCall(url: string): Promise<Response> {
-    const data = fetch(url, UrlBuilder.getInit()).then(async (response) => {
-      try {
-        return response.json();
-      } catch (err) {
-        console.log(err);
-      }
-    });
-    return data;
-  }
 }
 
 export default UrlBuilder;
