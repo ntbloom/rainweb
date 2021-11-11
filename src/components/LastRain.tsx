@@ -5,9 +5,7 @@ import ErrorHandlers from './ErrorHandlers';
 
 interface LastRainProps {
   url: string;
-  //   // come back to these later?
-  //   lastRainMM: number;
-  //   lastRainDuration: number;
+  interval: number;
 }
 interface LastRainData {
   timestamp: string;
@@ -18,19 +16,26 @@ const LastRain = (props: LastRainProps): JSX.Element => {
   const [timeSince, setTimeSince] = useState('...');
   const [error, setError] = useState(false);
   useEffect(() => {
-    console.debug(`calling ${props.url} at ${new Date().toISOString()}`);
-    fetch(props.url, UrlBuilder.getInit())
-      .then(async (response) => {
-        const data = await response.json();
-        const timestamp = (data as unknown as LastRainData).timestamp;
-        setDate(TimeUtils.getMonthDayYear(timestamp));
-        setTimeSince(`${TimeUtils.getTimeSince(timestamp)} ago`);
-      })
-      .catch((err) => {
-        console.error(`err=${err}`);
-        setError(true);
-      });
-  }, [props.url]);
+    function apiCall() {
+      console.debug(`calling ${props.url} at ${new Date().toISOString()}`);
+      fetch(props.url, UrlBuilder.getInit())
+        .then(async (response) => {
+          const data = await response.json();
+          const timestamp = (data as unknown as LastRainData).timestamp;
+          setDate(TimeUtils.getMonthDayYear(timestamp));
+          setTimeSince(`${TimeUtils.getTimeSince(timestamp)} ago`);
+        })
+        .catch((err) => {
+          console.error(`err=${err}`);
+          setError(true);
+        });
+    }
+
+    const reload = setInterval(() => {
+      apiCall();
+    }, props.interval);
+    return () => clearInterval(reload);
+  }, [props]);
   return !error ? (
     <p className="LastRain">
       Last Rain Event: <br />
