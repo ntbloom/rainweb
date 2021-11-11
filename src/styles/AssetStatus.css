@@ -1,0 +1,16 @@
+.AssetStatus {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  border-radius: 0.4em;
+}
+
+#up {
+  background-color: var(--status-good);
+}
+
+#down {
+  background-color: var(--status-bad);
+}
