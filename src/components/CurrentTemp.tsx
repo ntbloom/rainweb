@@ -29,6 +29,7 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
           setError(true);
         });
     }
+    apiCall();
 
     const reload = setInterval(() => {
       apiCall();

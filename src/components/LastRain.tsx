@@ -30,6 +30,7 @@ const LastRain = (props: LastRainProps): JSX.Element => {
           setError(true);
         });
     }
+    apiCall();
 
     const reload = setInterval(() => {
       apiCall();
