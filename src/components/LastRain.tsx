@@ -39,7 +39,7 @@ const LastRain = (props: LastRainProps): JSX.Element => {
   }, [props]);
   return !error ? (
     <p className="LastRain">
-      Last Rain Event: <br />
+      Last Rain: <br />
       {date} <br />({timeSince})
     </p>
   ) : (
