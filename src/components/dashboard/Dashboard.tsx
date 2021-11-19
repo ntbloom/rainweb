@@ -35,13 +35,16 @@ const gatewayStatusProps: AssetStatusProps = {
 };
 const gatewayStatus = <AssetStatus {...gatewayStatusProps}></AssetStatus>;
 
+const label = <p id="statusLabel">various status buttons</p>;
+
 function Dashboard(): JSX.Element {
   return (
-    <div className="dashboard">
+    <div className="Dashboard">
       <>{gatewayStatus}</>
       <>{sensorStatus}</>
       <>{currentTemp}</>
       <>{lastRain}</>
+      <>{label}</>
     </div>
   );
 }

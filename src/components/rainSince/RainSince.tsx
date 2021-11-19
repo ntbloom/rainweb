@@ -9,16 +9,28 @@ const RainSince = (props: RainSinceProps): JSX.Element => {
   const text = () => {
     switch (props.since) {
       case 'day':
-        return 'day';
+        return '24 hr';
       case 'week':
-        return 'wk';
+        return 'week';
       case 'month':
-        return 'mon';
+        return 'month';
       case 'year':
-        return 'yr';
+        return 'year';
     }
   };
-  return <p>{text}</p>;
+  const backgroundColor = () => {
+    // TODO: add other colors later based on results
+    return 'rain-default';
+  };
+
+  return (
+    <div className="RainSince" id={backgroundColor()}>
+      {props.total}"
+      <br />
+      {text()}
+    </div>
+  );
 };
 
-export default RainSince;
+export type { RainSinceProps };
+export { RainSince };

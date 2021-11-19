@@ -1,3 +1,11 @@
+.Dashboard {
+  display: inline-block;
+  border-style: solid;
+  padding: 0.5em 1em;
+  border-width: 0.1em;
+  border-radius: 0.4em;
+}
+
 .DashboardButton {
   display: inline-block;
   font-size: 0.75em;
@@ -5,6 +13,11 @@
   padding: 0.5em 1em;
   margin: 0.25em;
   border-radius: 0.4em;
+}
+
+#statusLabel {
+  text-align: center;
+  font-weight: bold;
 }
 
 #lastRain {

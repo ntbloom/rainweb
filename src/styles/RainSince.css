@@ -1,0 +1,38 @@
+.RainSince {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 0.4em;
+}
+
+#rainSinceLabel {
+  font-weight: bold;
+}
+
+#rain-default {
+  color: var(--rain-default-txt);
+  background-color: var(--rain-default-bg);
+}
+
+#rain-soggy {
+  color: var(--rain-soggy-txt);
+  background-color: var(--rain-soggy-bg);
+}
+
+#rain-moist {
+  color: var(--rain-moist-txt);
+  background-color: var(--rain-moist-bg);
+}
+
+#rain-dry {
+  color: var(--rain-dry-txt);
+  background-color: var(--rain-dry-bg);
+}
+
+#rain-parched {
+  color: var(--rain-parched-txt);
+  background-color: var(--rain-parched-bg);
+}
