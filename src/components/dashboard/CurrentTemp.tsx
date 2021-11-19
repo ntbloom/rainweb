@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import UrlBuilder from '../lib/data/urlBuilder';
-import ErrorHandlers from './ErrorHandlers';
-import TempUtils from '../lib/data/tempUtils';
+import UrlBuilder from '../../lib/data/urlBuilder';
+import ErrorHandlers from '../ErrorHandlers';
+import TempUtils from '../../lib/data/tempUtils';
 
 interface CurrentTempProps {
   url: string;
@@ -38,7 +38,9 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
   }, [props, tempC]);
   return !error ? (
     <p className="DashboardButton" id="default">
-      {tempC}{TempUtils.C}/{tempF}{TempUtils.F}
+      {tempC}
+      {TempUtils.C}/{tempF}
+      {TempUtils.F}
     </p>
   ) : (
     ErrorHandlers.errorLoadingMsg('LastTemp')

@@ -1,9 +1,9 @@
-import Dashboard from "./Dashboard";
+import Dashboard from './dashboard/Dashboard';
 
 function App(): JSX.Element {
   return (
     <>
-    <Dashboard></Dashboard>
+      <Dashboard></Dashboard>
     </>
   );
 }
