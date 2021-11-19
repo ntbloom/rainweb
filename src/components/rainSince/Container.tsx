@@ -1,6 +1,6 @@
 import { RainSince, RainSinceProps } from './RainSince';
 
-function RainSinceContainer(): JSX.Element {
+const RainSinceContainer = (): JSX.Element => {
   const dailyProps: RainSinceProps = {
     since: 'day',
     total: 1.1,
@@ -36,6 +36,6 @@ function RainSinceContainer(): JSX.Element {
       <>{label}</>
     </div>
   );
-}
+};
 
 export default RainSinceContainer;
