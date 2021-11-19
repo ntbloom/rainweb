@@ -1,7 +1,7 @@
-type sinceInterval = 'day' | 'week' | 'month' | 'year';
+import { dateInterval } from '../../lib/data/urlBuilder';
 
 interface RainSinceProps {
-  since: sinceInterval;
+  since: dateInterval;
   total: number;
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import TimeUtils from '../../lib/data/timeUtils';
-import UrlBuilder from '../../lib/data/urlBuilder';
+import { UrlBuilder } from '../../lib/data/urlBuilder';
 import ErrorHandlers from './../ErrorHandlers';
 
 interface LastRainProps {

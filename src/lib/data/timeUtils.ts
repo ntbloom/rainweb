@@ -42,6 +42,24 @@ class TimeUtils {
     );
     return date;
   }
+
+  // timestamp should look like `2021-05-23T01:47:30+00:00`
+  static getTimestampRFC3339(raw: Date): string {
+    const year = raw.getFullYear();
+    const month = raw.getMonth() + 1;
+    const day = raw.getDate();
+    const hour = raw.getHours();
+    const min = raw.getMinutes();
+    const sec = raw.getSeconds();
+    const minutesOffset = raw.getTimezoneOffset();
+    const rawHourOffset = Math.floor(minutesOffset / 60);
+    const offH = rawHourOffset < 10 ? `0${rawHourOffset}` : rawHourOffset;
+    const rawMinutesOffset = minutesOffset - rawHourOffset * 60;
+    const offM =
+      rawMinutesOffset < 10 ? `0${rawMinutesOffset}` : rawMinutesOffset;
+
+    return `${year}-${month}-${day}T${hour}:${min}:${sec}+${offH}:${offM}`;
+  }
 }
 
 export default TimeUtils;

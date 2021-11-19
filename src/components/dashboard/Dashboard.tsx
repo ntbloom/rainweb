@@ -1,4 +1,4 @@
-import UrlBuilder from '../../lib/data/urlBuilder';
+import { UrlBuilder } from '../../lib/data/urlBuilder';
 import { LastRain, LastRainProps } from './LastRain';
 import { CurrentTemp, CurrentTempProps } from './CurrentTemp';
 import { AssetStatus, AssetStatusProps } from './AssetStatus';

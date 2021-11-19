@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import UrlBuilder from '../../lib/data/urlBuilder';
+import { UrlBuilder } from '../../lib/data/urlBuilder';
 import ErrorHandlers from '../ErrorHandlers';
 import TempUtils from '../../lib/data/tempUtils';
 

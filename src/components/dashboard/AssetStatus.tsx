@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ErrorHandlers from '../ErrorHandlers';
-import UrlBuilder from '../../lib/data/urlBuilder';
+import { UrlBuilder } from '../../lib/data/urlBuilder';
 
 type assetType = 'gateway' | 'sensor';
 

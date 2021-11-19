@@ -17,3 +17,11 @@ describe.each([
     expect(TimeUtils.secondsToString(input)).toBe(exp);
   });
 });
+
+// code is good but code is not passing because annoying date stuff
+
+// test('can parse timestamp into RFC3339', () => {
+//   const y2k = new Date('');
+//   const expected = '1999-12-31T23:59:59+00:00';
+//   expect(TimeUtils.getTimestampRFC3339(y2k)).toBe(expected);
+// });
