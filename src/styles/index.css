@@ -1,5 +1,6 @@
 @import './darkmode.css';
-@import './LastRain.css';
+@import './Dashboard.css';
+@import './App.css';
 
 body {
   margin: 1em;

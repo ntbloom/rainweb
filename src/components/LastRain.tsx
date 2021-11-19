@@ -38,9 +38,8 @@ const LastRain = (props: LastRainProps): JSX.Element => {
     return () => clearInterval(reload);
   }, [props]);
   return !error ? (
-    <p className="LastRain">
-      Last Rain: <br />
-      {date} <br />({timeSince})
+    <p className="DashboardButton" id="lastRain">
+      Last Rain: {timeSince}
     </p>
   ) : (
     ErrorHandlers.errorLoadingMsg('LastRain')

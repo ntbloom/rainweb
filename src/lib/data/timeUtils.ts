@@ -7,13 +7,13 @@ class TimeUtils {
   static secondsToString(seconds: number): string {
     // just return "hour" for small increments
     if (seconds < HOUR) {
-      return `<1 hour`;
+      return `<1 hr`;
     }
     // return "hours" for less than 1 day
     let unit: string;
     if (seconds < DAY) {
       const hours = Math.floor(seconds / HOUR);
-      hours === 1 ? (unit = 'hour') : (unit = 'hours');
+      hours === 1 ? (unit = 'hr') : (unit = 'hrs');
       return `${hours} ${unit}`;
     }
     // return days for the rest

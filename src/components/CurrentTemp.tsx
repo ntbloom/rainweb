@@ -37,11 +37,8 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
     return () => clearInterval(reload);
   }, [props, tempC]);
   return !error ? (
-    <p className="CurrentTemp">
-      Current Temperature:
-      <br /> {tempC}
-      {TempUtils.C}/{tempF}
-      {TempUtils.F}
+    <p className="DashboardButton" id="default">
+      {tempC}{TempUtils.C}/{tempF}{TempUtils.F}
     </p>
   ) : (
     ErrorHandlers.errorLoadingMsg('LastTemp')

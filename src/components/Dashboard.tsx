@@ -3,8 +3,6 @@ import { LastRain, LastRainProps } from './LastRain';
 import { CurrentTemp, CurrentTempProps } from './CurrentTemp';
 import { AssetStatus, AssetStatusProps } from './AssetStatus';
 import Config from '../lib/data/config';
-import '../styles/App.css';
-import '../styles/CurrentTemp.css';
 
 const urls = new UrlBuilder();
 
@@ -42,10 +40,8 @@ function Dashboard(): JSX.Element {
     <div className="dashboard">
       <>{gatewayStatus}</>
       <>{sensorStatus}</>
-      <div className="currentData">
-        <>{lastRain}</>
-        <>{currentTemp}</>
-      </div>
+      <>{currentTemp}</>
+      <>{lastRain}</>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import ErrorHandlers from './ErrorHandlers';
 import UrlBuilder from '../lib/data/urlBuilder';
-import '../styles/AssetStatus.css';
 
 type assetType = 'gateway' | 'sensor';
 
@@ -49,7 +48,7 @@ const AssetStatus = (props: AssetStatusProps): JSX.Element => {
 
   const text = ok ? 'up' : 'down';
   return !error ? (
-    <div className="AssetStatus" id={text}>
+    <div className="DashboardButton" id={text}>
       {props.name}
     </div>
   ) : (
