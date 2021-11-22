@@ -1,53 +1,19 @@
-import { useState, useEffect } from 'react';
 import ErrorHandlers from '../ErrorComponents';
-import { UrlBuilder } from '../../lib/data/urlBuilder';
 
 type assetType = 'gateway' | 'sensor';
 
 interface AssetStatusProps {
   name: assetType;
+  ok: boolean;
   since: number;
-  url: string;
   interval: number;
+  error: boolean;
 }
 
-interface GatewayStatusData {
-  gateway_active: boolean;
-}
-
-interface SensorStatusData {
-  sensor_active: boolean;
-}
-
+/* Show the status of an asset, in this case a sensor and gateway */
 const AssetStatus = (props: AssetStatusProps): JSX.Element => {
-  const [ok, setOk] = useState(false);
-  const [error, setError] = useState(false);
-  useEffect(() => {
-    function apiCall() {
-      console.debug(`calling ${props.url} at ${new Date().toISOString()}`);
-      fetch(props.url, UrlBuilder.getInit())
-        .then(async (response) => {
-          const data = (await response.json()) as unknown;
-          const status =
-            props.name === 'gateway'
-              ? (data as GatewayStatusData).gateway_active
-              : (data as SensorStatusData).sensor_active;
-          setOk(status);
-        })
-        .catch((err) => {
-          console.error(`err=${err}`);
-          setError(true);
-        });
-    }
-
-    const reload = setInterval(() => {
-      apiCall();
-    }, props.interval);
-    return () => clearInterval(reload);
-  }, [props]);
-
-  const text = ok ? 'up' : 'down';
-  return !error ? (
+  const text = props.ok ? 'up' : 'down';
+  return !props.error ? (
     <div className="DashboardButton" id={text}>
       {props.name}
     </div>

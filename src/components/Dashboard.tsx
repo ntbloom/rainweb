@@ -21,17 +21,19 @@ const currentTemp = <CurrentTemp {...currentTempProps}></CurrentTemp>;
 const since = Config.StatusSince;
 const sensorStatusProps: AssetStatusProps = {
   name: 'sensor',
-  url: urls.buildSensorStatusUrl(since),
   since: since,
+  ok: true,
   interval: Config.StatusInterval * 1000,
+  error: false,
 };
 const sensorStatus = <AssetStatus {...sensorStatusProps}></AssetStatus>;
 
 const gatewayStatusProps: AssetStatusProps = {
   name: 'gateway',
-  url: urls.buildGatewayStatusUrl(since),
   since: since,
+  ok: false,
   interval: Config.StatusInterval * 1000,
+  error: false,
 };
 const gatewayStatus = <AssetStatus {...gatewayStatusProps}></AssetStatus>;
 
