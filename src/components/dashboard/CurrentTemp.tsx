@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { UrlBuilder } from '../../lib/data/urlBuilder';
-import ErrorHandlers from '../ErrorHandlers';
+import ErrorHandlers from '../ErrorComponents';
 import TempUtils from '../../lib/data/tempUtils';
 
 interface CurrentTempProps {

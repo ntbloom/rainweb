@@ -1,4 +1,4 @@
-import { RainSince, RainSinceProps } from './RainSince';
+import { RainSince, RainSinceProps } from './dashboard/RainSince';
 
 const RainSinceContainer = (): JSX.Element => {
   const dailyProps: RainSinceProps = {

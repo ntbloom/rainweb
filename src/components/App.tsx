@@ -1,5 +1,5 @@
-import Dashboard from './dashboard/Dashboard';
-import RainSinceContainer from './rainSince/Container';
+import Dashboard from './Dashboard';
+import RainSinceContainer from './Container';
 
 function App(): JSX.Element {
   return (
