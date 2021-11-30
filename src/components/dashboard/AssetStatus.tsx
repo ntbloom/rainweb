@@ -3,10 +3,8 @@ import ErrorHandlers from '../ErrorComponents';
 type assetType = 'gateway' | 'sensor';
 
 interface AssetStatusProps {
-  name: assetType;
   ok: boolean;
-  since: number;
-  interval: number;
+  name: assetType;
   error: boolean;
 }
 

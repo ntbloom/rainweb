@@ -1,19 +1,22 @@
 import { AssetStatus, AssetStatusProps } from './dashboard/AssetStatus';
+import { CurrentTemp, CurrentTempProps } from './dashboard/CurrentTemp';
 
 const gwProps: AssetStatusProps = {
-  name: 'gateway',
   ok: true,
-  since: 30,
-  interval: 30,
+  name: 'gateway',
   error: false,
 };
 
 const sensorProps: AssetStatusProps = {
-  name: 'sensor',
   ok: true,
-  since: 30,
-  interval: 30,
+  name: 'sensor',
   error: false,
+};
+
+const currentTempProps: CurrentTempProps = {
+  ok: true,
+  tempF: 100,
+  tempC: 37,
 };
 
 function App(): JSX.Element {
@@ -21,6 +24,7 @@ function App(): JSX.Element {
     <>
       <AssetStatus {...gwProps}></AssetStatus>
       <AssetStatus {...sensorProps}></AssetStatus>
+      <CurrentTemp {...currentTempProps}></CurrentTemp>
     </>
   );
 }
