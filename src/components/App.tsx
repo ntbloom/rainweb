@@ -1,5 +1,6 @@
 import { AssetStatus, AssetStatusProps } from './dashboard/AssetStatus';
 import { CurrentTemp, CurrentTempProps } from './dashboard/CurrentTemp';
+import { LastRain, LastRainProps } from './dashboard/LastRain';
 
 const gwProps: AssetStatusProps = {
   ok: true,
@@ -19,12 +20,18 @@ const currentTempProps: CurrentTempProps = {
   tempC: 37,
 };
 
+const lastRainProps: LastRainProps = {
+  ok: true,
+  timeSince: new Date().toISOString(),
+};
+
 function App(): JSX.Element {
   return (
     <>
       <AssetStatus {...gwProps}></AssetStatus>
       <AssetStatus {...sensorProps}></AssetStatus>
       <CurrentTemp {...currentTempProps}></CurrentTemp>
+      <LastRain {...lastRainProps}></LastRain>
     </>
   );
 }
