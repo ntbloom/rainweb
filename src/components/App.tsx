@@ -1,7 +1,7 @@
-import { AssetStatus, AssetStatusProps } from './dashboard/AssetStatus';
-import { CurrentTemp, CurrentTempProps } from './dashboard/CurrentTemp';
-import { LastRain, LastRainProps } from './dashboard/LastRain';
-import { RainSince, RainSinceProps } from './dashboard/RainSince';
+import { AssetStatus, AssetStatusProps } from './AssetStatus';
+import { CurrentTemp, CurrentTempProps } from './CurrentTemp';
+import { LastRain, LastRainProps } from './LastRain';
+import { RainSince, RainSinceProps } from './RainSince';
 
 const gwProps: AssetStatusProps = {
   ok: true,

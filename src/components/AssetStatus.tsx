@@ -1,4 +1,4 @@
-import ErrorHandlers from '../ErrorComponents';
+import { ErrorLoadingMsg } from './Errors';
 
 type assetType = 'gateway' | 'sensor';
 
@@ -16,7 +16,7 @@ const AssetStatus = (props: AssetStatusProps): JSX.Element => {
       {props.name}
     </div>
   ) : (
-    ErrorHandlers.errorLoadingMsg(props.name)
+    ErrorLoadingMsg(props.name)
   );
 };
 

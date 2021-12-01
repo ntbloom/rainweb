@@ -1,5 +1,5 @@
-import { dateInterval } from '../../lib/data/urlBuilder';
-import ErrorHandlers from '../ErrorComponents';
+import { dateInterval } from '../lib/data/urlBuilder';
+import { ErrorLoadingMsg } from './Errors';
 
 interface RainSinceProps {
   ok: boolean;
@@ -72,7 +72,7 @@ const RainSinceIndividual = (props: RainSinceIndividualProps): JSX.Element => {
       {text()}
     </div>
   ) : (
-    ErrorHandlers.errorLoadingMsg(`rainSince ${props.since}`)
+    ErrorLoadingMsg(`rainSince ${props.since}`)
   );
 };
 

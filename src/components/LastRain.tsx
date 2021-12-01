@@ -1,5 +1,5 @@
-import TimeUtils from '../../lib/data/timeUtils';
-import ErrorHandlers from '../ErrorComponents';
+import TimeUtils from '../lib/data/timeUtils';
+import { ErrorLoadingMsg } from './Errors';
 
 interface LastRainProps {
   ok: boolean;
@@ -12,7 +12,7 @@ const LastRain = (props: LastRainProps): JSX.Element => {
       Last Rain: {`${TimeUtils.getTimeSince(props.timeSince)} ago`}
     </p>
   ) : (
-    ErrorHandlers.errorLoadingMsg('LastRain')
+    ErrorLoadingMsg('LastRain')
   );
 };
 

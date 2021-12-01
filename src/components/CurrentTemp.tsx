@@ -1,5 +1,5 @@
-import TempUtils from '../../lib/data/tempUtils';
-import ErrorHandlers from '../ErrorComponents';
+import TempUtils from '../lib/data/tempUtils';
+import { ErrorLoadingMsg } from './Errors';
 
 interface CurrentTempProps {
   ok: boolean;
@@ -15,7 +15,7 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
       {TempUtils.F}
     </p>
   ) : (
-    ErrorHandlers.errorLoadingMsg('temperature')
+    ErrorLoadingMsg('temperature')
   );
 };
 
