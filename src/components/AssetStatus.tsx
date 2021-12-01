@@ -1,16 +1,28 @@
 import { ErrorLoadingMsg } from './Errors';
+import Loading from './Loading';
 
 type assetType = 'gateway' | 'sensor';
 
 interface AssetStatusProps {
-  ok: boolean;
+  up: boolean;
   name: assetType;
+  loading: boolean;
   error: boolean;
 }
 
+const DefaultGatewayStatusProps: AssetStatusProps = {
+  up: false,
+  name: 'gateway',
+  loading: false,
+  error: true,
+};
+
 /* Show the status of an asset, in this case a sensor and gateway */
 const AssetStatus = (props: AssetStatusProps): JSX.Element => {
-  const text = props.ok ? 'up' : 'down';
+  const text = props.up ? 'up' : 'down';
+  if (props.loading) {
+    return <Loading></Loading>;
+  }
   return !props.error ? (
     <div className="DashboardButton" id={text}>
       {props.name}
@@ -21,4 +33,4 @@ const AssetStatus = (props: AssetStatusProps): JSX.Element => {
 };
 
 export type { AssetStatusProps };
-export { AssetStatus };
+export { AssetStatus, DefaultGatewayStatusProps };

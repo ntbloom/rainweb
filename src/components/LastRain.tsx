@@ -2,12 +2,17 @@ import TimeUtils from '../lib/data/timeUtils';
 import { ErrorLoadingMsg } from './Errors';
 
 interface LastRainProps {
-  ok: boolean;
+  error: boolean;
   timeSince: string;
 }
 
+const DefaultLastRainProps: LastRainProps = {
+  error: true,
+  timeSince: new Date().toISOString(),
+};
+
 const LastRain = (props: LastRainProps): JSX.Element => {
-  return props.ok ? (
+  return props.error ? (
     <p className="DashboardButton" id="lastRain">
       Last Rain: {`${TimeUtils.getTimeSince(props.timeSince)} ago`}
     </p>
@@ -17,4 +22,4 @@ const LastRain = (props: LastRainProps): JSX.Element => {
 };
 
 export type { LastRainProps };
-export { LastRain };
+export { LastRain, DefaultLastRainProps };
