@@ -3,15 +3,13 @@ import { ErrorLoadingMsg } from './Errors';
 import Loading from './Loading';
 
 interface CurrentTempProps {
-  tempF: number;
-  tempC: number;
+  tempF?: number;
+  tempC?: number;
   loading: boolean;
   error: boolean;
 }
 
 const DefaultCurrentTempProps: CurrentTempProps = {
-  tempF: -999,
-  tempC: -999,
   loading: false,
   error: true,
 };

@@ -1,4 +1,6 @@
 import React from 'react';
+import TempUtils from '../lib/data/tempUtils';
+import { UrlBuilder } from '../lib/data/urlBuilder';
 import {
   AssetStatus,
   AssetStatusProps,
@@ -17,8 +19,8 @@ type RetrieverProps = any;
 type RetrieverState = {
   ready: boolean;
   gwProps: AssetStatusProps;
-  //   sensorProps: AssetStatusProps;
   currentTempProps: CurrentTempProps;
+  //   sensorProps: AssetStatusProps;
   //   lastRainProps: LastRainProps;
   //   rainSinceProps: RainSinceProps;
 };
@@ -51,13 +53,33 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
   }
 
   setCurrentTempProps() {
-    const tempProps: CurrentTempProps = {
-      tempF: 98,
-      tempC: 38,
-      loading: false,
-      error: false,
-    };
-    this.setState({ currentTempProps: tempProps });
+    let current = this.state.currentTempProps;
+    current.loading = true;
+    this.setState({ currentTempProps: current });
+
+    fetch(UrlBuilder.currentTempURL, UrlBuilder.getInit())
+      .then(async (response) => {
+        const data = await response.json();
+        const tempC = data['last_temp_c'] as number;
+        const tempF = TempUtils.celToFahr(tempC, 'number') as number;
+        this.setState({
+          currentTempProps: {
+            tempF: tempF,
+            tempC: tempC,
+            loading: false,
+            error: false,
+          },
+        });
+      })
+      .catch((err) => {
+        console.error(`err=${err}`);
+        this.setState({
+          currentTempProps: {
+            loading: false,
+            error: true,
+          },
+        });
+      });
   }
 
   render() {
