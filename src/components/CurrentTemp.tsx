@@ -1,5 +1,6 @@
 import TempUtils from '../lib/data/tempUtils';
 import { ErrorLoadingMsg } from './Errors';
+import Loading from './Loading';
 
 interface CurrentTempProps {
   tempF: number;
@@ -12,11 +13,14 @@ const DefaultCurrentTempProps: CurrentTempProps = {
   tempF: -999,
   tempC: -999,
   loading: false,
-  error: false,
+  error: true,
 };
 
 const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
-  return props.error ? (
+  if (props.loading) {
+    return <Loading></Loading>;
+  }
+  return !props.error ? (
     <p className="DashboardButton" id="default">
       {props.tempC}
       {TempUtils.C}/{props.tempF}

@@ -4,7 +4,11 @@ import {
   AssetStatusProps,
   DefaultGatewayStatusProps,
 } from './AssetStatus';
-import { CurrentTempProps, DefaultCurrentTempProps } from './CurrentTemp';
+import {
+  CurrentTemp,
+  CurrentTempProps,
+  DefaultCurrentTempProps,
+} from './CurrentTemp';
 // import { DefaultLastRainProps, LastRainProps } from './LastRain';
 // import { RainSinceProps } from './RainSince';
 
@@ -28,10 +32,12 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
       currentTempProps: DefaultCurrentTempProps,
     };
     this.setGatewayStatusProps = this.setGatewayStatusProps.bind(this);
+    this.setCurrentTempProps = this.setCurrentTempProps.bind(this);
   }
 
   componentDidMount() {
     this.setGatewayStatusProps();
+    this.setCurrentTempProps();
   }
 
   setGatewayStatusProps() {
@@ -43,8 +49,24 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
     };
     this.setState({ gwProps: gwProps });
   }
+
+  setCurrentTempProps() {
+    const tempProps: CurrentTempProps = {
+      tempF: 98,
+      tempC: 38,
+      loading: false,
+      error: false,
+    };
+    this.setState({ currentTempProps: tempProps });
+  }
+
   render() {
-    return <AssetStatus {...this.state.gwProps}></AssetStatus>;
+    return (
+      <>
+        <AssetStatus {...this.state.gwProps}></AssetStatus>
+        <CurrentTemp {...this.state.currentTempProps}></CurrentTemp>
+      </>
+    );
   }
 }
 
