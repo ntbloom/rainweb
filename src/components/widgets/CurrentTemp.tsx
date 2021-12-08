@@ -9,6 +9,10 @@ export interface CurrentTempProps {
   error: boolean;
 }
 
+export interface CurrentTempPayload {
+  last_temp_c: number;
+}
+
 export const DefaultCurrentTempProps: CurrentTempProps = {
   loading: false,
   error: true,

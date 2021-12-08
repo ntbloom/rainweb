@@ -4,10 +4,12 @@ import { UrlBuilder } from '../../lib/data/urlBuilder';
 import {
   CurrentTemp,
   CurrentTempProps,
+  CurrentTempPayload,
   DefaultCurrentTempProps,
 } from '../widgets/CurrentTemp';
 // import { DefaultLastRainProps, LastRainProps } from './LastRain';
 // import { RainSinceProps } from './RainSince';
+import { fetchData } from './fetchData';
 
 type RetrieverProps = any;
 
@@ -34,30 +36,32 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
     let current = this.state.currentTempProps;
     current.loading = true;
     this.setState({ currentTempProps: current });
-
-    fetch(UrlBuilder.currentTempURL, UrlBuilder.getInit())
-      .then(async (response) => {
-        const data = await response.json();
-        const tempC = data['last_temp_c'] as number;
-        const tempF = TempUtils.celToFahr(tempC, 'number') as number;
-        this.setState({
-          currentTempProps: {
-            tempF: tempF,
-            tempC: tempC,
-            loading: false,
-            error: false,
-          },
-        });
-      })
-      .catch((err) => {
-        console.error(`err=${err}`);
-        this.setState({
-          currentTempProps: {
-            loading: false,
-            error: true,
-          },
-        });
+    const onSuccess = (data: any): void => {
+      data as CurrentTempPayload;
+      const tempC = data['last_temp_c'];
+      if (tempC === undefined) {
+        throw new Error('does not match interface');
+      }
+      const tempF = TempUtils.celToFahr(tempC, 'number') as number;
+      this.setState({
+        currentTempProps: {
+          tempF: tempF,
+          tempC: tempC,
+          loading: false,
+          error: false,
+        },
       });
+    };
+    const onFailure = (error: Error): void => {
+      console.error(error);
+      this.setState({
+        currentTempProps: {
+          loading: false,
+          error: true,
+        },
+      });
+    };
+    fetchData(UrlBuilder.currentTempURL, onSuccess, onFailure);
   }
 
   render() {
