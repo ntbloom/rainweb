@@ -2,19 +2,19 @@ import TempUtils from '../../lib/data/tempUtils';
 import { ErrorLoadingMsg } from '../Errors';
 import Loading from './Loading';
 
-interface CurrentTempProps {
+export interface CurrentTempProps {
   tempF?: number;
   tempC?: number;
   loading: boolean;
   error: boolean;
 }
 
-const DefaultCurrentTempProps: CurrentTempProps = {
+export const DefaultCurrentTempProps: CurrentTempProps = {
   loading: false,
   error: true,
 };
 
-const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
+export const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
   if (props.loading) {
     return <Loading></Loading>;
   }
@@ -28,6 +28,3 @@ const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
     ErrorLoadingMsg('temperature')
   );
 };
-
-export type { CurrentTempProps };
-export { CurrentTemp, DefaultCurrentTempProps };

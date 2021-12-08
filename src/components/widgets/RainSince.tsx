@@ -1,7 +1,7 @@
 import { dateInterval } from '../../lib/data/urlBuilder';
 import { ErrorLoadingMsg } from '../Errors';
 
-interface RainSinceProps {
+export interface RainSinceProps {
   ok: boolean;
   day: number;
   week: number;
@@ -9,7 +9,7 @@ interface RainSinceProps {
   year: number;
 }
 
-const RainSince = (props: RainSinceProps): JSX.Element => {
+export const RainSince = (props: RainSinceProps): JSX.Element => {
   const dayProps: RainSinceIndividualProps = {
     ok: props.ok,
     since: 'day',
@@ -75,6 +75,3 @@ const RainSinceIndividual = (props: RainSinceIndividualProps): JSX.Element => {
     ErrorLoadingMsg(`rainSince ${props.since}`)
   );
 };
-
-export type { RainSinceProps };
-export { RainSince };

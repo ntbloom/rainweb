@@ -2,11 +2,6 @@ import React from 'react';
 import TempUtils from '../../lib/data/tempUtils';
 import { UrlBuilder } from '../../lib/data/urlBuilder';
 import {
-  AssetStatus,
-  AssetStatusProps,
-  DefaultGatewayStatusProps,
-} from '../widgets/AssetStatus';
-import {
   CurrentTemp,
   CurrentTempProps,
   DefaultCurrentTempProps,
@@ -18,11 +13,7 @@ type RetrieverProps = any;
 
 type RetrieverState = {
   ready: boolean;
-  gwProps: AssetStatusProps;
   currentTempProps: CurrentTempProps;
-  //   sensorProps: AssetStatusProps;
-  //   lastRainProps: LastRainProps;
-  //   rainSinceProps: RainSinceProps;
 };
 
 class Retriever extends React.Component<RetrieverProps, RetrieverState> {
@@ -30,26 +21,13 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
     super(props);
     this.state = {
       ready: false,
-      gwProps: DefaultGatewayStatusProps,
       currentTempProps: DefaultCurrentTempProps,
     };
-    this.setGatewayStatusProps = this.setGatewayStatusProps.bind(this);
     this.setCurrentTempProps = this.setCurrentTempProps.bind(this);
   }
 
   componentDidMount() {
-    this.setGatewayStatusProps();
     this.setCurrentTempProps();
-  }
-
-  setGatewayStatusProps() {
-    const gwProps: AssetStatusProps = {
-      up: true,
-      name: 'gateway',
-      loading: false,
-      error: false,
-    };
-    this.setState({ gwProps: gwProps });
   }
 
   setCurrentTempProps() {
@@ -85,7 +63,6 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
   render() {
     return (
       <>
-        <AssetStatus {...this.state.gwProps}></AssetStatus>
         <CurrentTemp {...this.state.currentTempProps}></CurrentTemp>
       </>
     );
