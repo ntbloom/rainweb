@@ -1,4 +1,4 @@
-import Retriever from './Retriever';
+import Retriever from './retriever/Retriever';
 
 function App(): JSX.Element {
   return (

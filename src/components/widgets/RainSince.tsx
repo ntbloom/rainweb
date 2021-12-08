@@ -1,5 +1,5 @@
-import { dateInterval } from '../lib/data/urlBuilder';
-import { ErrorLoadingMsg } from './Errors';
+import { dateInterval } from '../../lib/data/urlBuilder';
+import { ErrorLoadingMsg } from '../Errors';
 
 interface RainSinceProps {
   ok: boolean;

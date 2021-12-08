@@ -1,16 +1,16 @@
 import React from 'react';
-import TempUtils from '../lib/data/tempUtils';
-import { UrlBuilder } from '../lib/data/urlBuilder';
+import TempUtils from '../../lib/data/tempUtils';
+import { UrlBuilder } from '../../lib/data/urlBuilder';
 import {
   AssetStatus,
   AssetStatusProps,
   DefaultGatewayStatusProps,
-} from './AssetStatus';
+} from '../widgets/AssetStatus';
 import {
   CurrentTemp,
   CurrentTempProps,
   DefaultCurrentTempProps,
-} from './CurrentTemp';
+} from '../widgets/CurrentTemp';
 // import { DefaultLastRainProps, LastRainProps } from './LastRain';
 // import { RainSinceProps } from './RainSince';
 

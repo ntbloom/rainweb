@@ -1,5 +1,5 @@
-import TimeUtils from '../lib/data/timeUtils';
-import { ErrorLoadingMsg } from './Errors';
+import TimeUtils from '../../lib/data/timeUtils';
+import { ErrorLoadingMsg } from '../Errors';
 
 interface LastRainProps {
   error: boolean;

@@ -1,5 +1,5 @@
-import TempUtils from '../lib/data/tempUtils';
-import { ErrorLoadingMsg } from './Errors';
+import TempUtils from '../../lib/data/tempUtils';
+import { ErrorLoadingMsg } from '../Errors';
 import Loading from './Loading';
 
 interface CurrentTempProps {

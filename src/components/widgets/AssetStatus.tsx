@@ -1,4 +1,4 @@
-import { ErrorLoadingMsg } from './Errors';
+import { ErrorLoadingMsg } from '../Errors';
 import Loading from './Loading';
 
 type assetType = 'gateway' | 'sensor';
