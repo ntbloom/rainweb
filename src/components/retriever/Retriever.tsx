@@ -9,7 +9,7 @@ import {
 } from '../widgets/CurrentTemp';
 // import { DefaultLastRainProps, LastRainProps } from './LastRain';
 // import { RainSinceProps } from './RainSince';
-import { fetchData } from './fetchData';
+import { fetchData } from '../../lib/data/fetchData';
 
 type RetrieverProps = any;
 

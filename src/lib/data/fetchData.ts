@@ -1,4 +1,4 @@
-import { UrlBuilder } from '../../lib/data/urlBuilder';
+import { UrlBuilder } from './urlBuilder';
 
 type OnSuccess<T> = (payload: T) => void;
 type OnError = (error: Error) => void;
