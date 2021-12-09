@@ -9,7 +9,8 @@ import {
   DefaultCurrentTempProps,
 } from '../widgets/CurrentTemp';
 
-export const Dashboard = (): JSX.Element => {
+// display the current temperature values
+const GetCurrentTemp = (): JSX.Element => {
   const [calledTemp, setCalledTemp] = useState(false);
   const [tempC, setTempC] = useState(DefaultCurrentTempProps.tempC);
   const [tempF, setTempF] = useState(DefaultCurrentTempProps.tempF);
@@ -40,9 +41,13 @@ export const Dashboard = (): JSX.Element => {
     error: tempError,
   };
 
+  return <CurrentTemp {...currentTempProps}></CurrentTemp>;
+};
+
+export const Dashboard = (): JSX.Element => {
   return (
     <>
-      <CurrentTemp {...currentTempProps}></CurrentTemp>
+      <GetCurrentTemp></GetCurrentTemp>
     </>
   );
 };
