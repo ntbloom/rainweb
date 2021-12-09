@@ -3,8 +3,8 @@ import { ErrorLoadingMsg } from '../Errors';
 import Loading from './Loading';
 
 export interface CurrentTempProps {
-  tempF?: number;
-  tempC?: number;
+  tempF: number;
+  tempC: number;
   loading: boolean;
   error: boolean;
 }
@@ -14,8 +14,10 @@ export interface CurrentTempPayload {
 }
 
 export const DefaultCurrentTempProps: CurrentTempProps = {
-  loading: false,
-  error: true,
+  tempF: -999,
+  tempC: -999,
+  loading: true,
+  error: false,
 };
 
 export const CurrentTemp = (props: CurrentTempProps): JSX.Element => {
