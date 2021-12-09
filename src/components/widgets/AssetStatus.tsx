@@ -13,9 +13,20 @@ export interface AssetStatusProps {
 export const DefaultGatewayStatusProps: AssetStatusProps = {
   up: false,
   name: 'gateway',
-  loading: false,
-  error: true,
+  loading: true,
+  error: false,
 };
+
+export const DefaultSensorStatusProps: AssetStatusProps = {
+  up: false,
+  name: 'sensor',
+  loading: true,
+  error: false,
+};
+
+export interface AssetStatusPayload {
+  up: boolean;
+}
 
 /* Show the status of an asset, in this case a sensor and gateway */
 export const AssetStatus = (props: AssetStatusProps): JSX.Element => {
