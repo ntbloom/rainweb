@@ -36,8 +36,7 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
     let current = this.state.currentTempProps;
     current.loading = true;
     this.setState({ currentTempProps: current });
-    const onSuccess = (data: any): void => {
-      data as CurrentTempPayload;
+    const onSuccess = (data: CurrentTempPayload): void => {
       const tempC = data['last_temp_c'];
       if (tempC === undefined) {
         throw new Error('does not match interface');
@@ -53,7 +52,6 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
       });
     };
     const onFailure = (error: Error): void => {
-      console.error(error);
       this.setState({
         currentTempProps: {
           loading: false,
@@ -61,7 +59,11 @@ class Retriever extends React.Component<RetrieverProps, RetrieverState> {
         },
       });
     };
-    fetchData(UrlBuilder.currentTempURL, onSuccess, onFailure);
+    fetchData<CurrentTempPayload>(
+      UrlBuilder.currentTempURL,
+      onSuccess,
+      onFailure
+    );
   }
 
   render() {
